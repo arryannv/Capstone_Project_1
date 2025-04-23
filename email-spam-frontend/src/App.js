@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
+  console.log('App rendering, setting up routes...');  
   return (
     <Router>
       <Routes>
