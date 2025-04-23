@@ -18,15 +18,22 @@ const Login = () => {
         password,
       });
   
-      if (res.data.success) {
+      if (res.data.token) {
         alert('Login successful!');
         localStorage.setItem('token', res.data.token);
+
+         
         
         console.log('Token stored in localStorage:', localStorage.getItem('token')); // Check if token is stored
   
         // After storing the token, use navigate to route to dashboard
         console.log('Redirecting to /dashboard');
+
+        
+          
         navigate('/dashboard');
+        
+        //navigate('/dashboard');
          // Redirect to Dashboard after successful login
       } else {
         alert(res.data.message || 'Login failed');

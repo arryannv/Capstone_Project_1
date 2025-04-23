@@ -19,7 +19,10 @@ const Signup = () => {
       if (res.data.success) {
         alert('Signup successful!');
         localStorage.setItem('token', res.data.token);  // ✅ auto-login
-        navigate('/dashboard');  // ✅ go straight to dashboard
+        
+        navigate('/dashboard');
+        
+        //navigate('/dashboard');  // ✅ go straight to dashboard
       } else {
         alert(res.data.message || 'Signup failed');
       }

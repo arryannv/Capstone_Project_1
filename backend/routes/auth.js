@@ -1,9 +1,12 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
 
-// Signup
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
+
+// Signup 
 router.post('/signup', async (req, res) => {
   const { email, password } = req.body;
 
@@ -16,7 +19,10 @@ router.post('/signup', async (req, res) => {
     const newUser = new User({ email, password: hashedPassword });
     await newUser.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    // Generate token
+    const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, { expiresIn: '1h' });
+
+    res.status(201).json({ message: 'User registered successfully', token });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
@@ -33,7 +39,10 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-    res.status(200).json({ message: 'Login successful' });
+    // Generate token
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+
+    res.status(200).json({ message: 'Login successful', token });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
