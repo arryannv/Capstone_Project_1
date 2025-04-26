@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -50,29 +49,6 @@ const Login = () => {
             </div>
             <h2>Welcome Back!</h2>
             <p>Protect your inbox with advanced spam detection powered by AI.</p>
-            <div className="features">
-              <div className="feature-item">
-                <div className="feature-icon">🔍</div>
-                <div className="feature-text">
-                  <h3>Powerful Detection</h3>
-                  <p>Identify spam emails with high accuracy</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">⚡</div>
-                <div className="feature-text">
-                  <h3>Real-time Analysis</h3>
-                  <p>Get instant results for your emails</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">📊</div>
-                <div className="feature-text">
-                  <h3>Detailed Reports</h3>
-                  <p>View comprehensive analysis and statistics</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

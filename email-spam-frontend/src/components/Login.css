@@ -1,60 +1,215 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
-  }
-  
-  .login-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .login-card h2 {
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
-  
-  .login-card input {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  
-  .login-card button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-card button:hover {
-    background-color: #0056b3;
-  }
-  
-  .login-card p {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .login-card span {
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
+/* Overall Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.auth-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 20px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Banner Side */
+.auth-left {
+  flex: 1;
+  background-color: #3e8e41;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-banner .logo {
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.auth-banner .logo-icon {
+  margin-right: 10px;
+  font-size: 48px;
+}
+
+.auth-banner h2 {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.auth-banner p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.auth-banner .features {
+  margin-top: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.feature-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.feature-text h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.feature-text p {
+  font-size: 14px;
+}
+
+/* Form Side */
+.auth-right {
+  flex: 1;
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-form-container h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.auth-form-container p {
+  font-size: 16px;
+  color: #666;
+}
+
+.auth-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.auth-error span {
+  margin-left: 10px;
+}
+
+.auth-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-with-icon input:focus {
+  border-color: #3e8e41;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+
+.auth-button {
+  background-color: #3e8e41;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #2f6b32;
+}
+
+.auth-button.loading {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.auth-separator {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.auth-separator span {
+  font-size: 16px;
+  color: #888;
+}
+
+.google-button {
+  background-color: #4285f4;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-button:hover {
+  background-color: #3367d6;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-footer p {
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: #3e8e41;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
