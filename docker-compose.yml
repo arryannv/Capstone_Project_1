@@ -1,20 +1,31 @@
-version: '3.8'
-
+version: '3'
 services:
-  frontend:
-    build: 
-      context: ./email-spam-frontend  # Updated to match your directory name
-      dockerfile: dockerfile.frontend  # If using named Dockerfile
-    ports:
-      - "3000:80"
-    depends_on:
-      - backend
-
   backend:
-    build: 
-      context: ./backend  # Assuming this is still named "backend"
-      dockerfile: dockerfile.backend  # If using named Dockerfile
+    build:
+      context: ./backend
+      dockerfile: dockerfile.backend
     ports:
       - "5000:5000"
+    depends_on:
+      - frontend
+      - mongodb
     environment:
-      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongodb:27017/email-spam-detection  # Replace with your DB name
+
+  frontend:
+    build:
+      context: ./email-spam-frontend
+      dockerfile: dockerfile.frontend
+    ports:
+      - "3000:80"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
