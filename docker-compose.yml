@@ -3,19 +3,18 @@ version: '3.8'
 services:
   frontend:
     build: 
-      context: ./frontend  # Adjust this path to where your frontend code is
+      context: ./email-spam-frontend  # Updated to match your directory name
+      dockerfile: dockerfile.frontend  # If using named Dockerfile
     ports:
-      - "3000:80"  # Maps port 80 in the container to 3000 on your host
+      - "3000:80"
     depends_on:
       - backend
 
   backend:
     build: 
-      context: ./backend  # Adjust this path to where your backend code is
+      context: ./backend  # Assuming this is still named "backend"
+      dockerfile: dockerfile.backend  # If using named Dockerfile
     ports:
-      - "5000:5000"  # Maps port 5000 in the container to 5000 on your host
+      - "5000:5000"
     environment:
       - NODE_ENV=production
-      # Add other environment variables your backend needs
-      # - DATABASE_URL=...
-      # - API_KEY=...
