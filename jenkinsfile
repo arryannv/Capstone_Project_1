@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    environment {
+        FRONTEND_IMAGE = 'hiabhinavv/frontend-app'
+        BACKEND_IMAGE = 'hiabhinavv/backend-app'
+    }
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git url: 'https://github.com/arryannv/Capstone_Project_1.git', branch: 'main'
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                dir('email-spam-frontend') {
+                    sh 'docker build -t $FRONTEND_IMAGE .'
+                }
+            }
+        }
+
+        stage('Build Backend') {
+            steps {
+                dir('backend') {
+                    sh 'docker build -t $BACKEND_IMAGE .'
+                }
+            }
+        }
+
+        stage('Push Docker Images') {
+            steps {
+                withDockerRegistry([credentialsId: 'dockerhub-credentials', url: '']) {
+                    sh 'docker push $FRONTEND_IMAGE'
+                    sh 'docker push $BACKEND_IMAGE'
+                }
+            }
+        }
+
+        stage('Deploy (Optional)') {
+            steps {
+                echo 'Deploying application...'
+                // Example: docker-compose pull && docker-compose up -d
+            }
+        }
+    }
+}
