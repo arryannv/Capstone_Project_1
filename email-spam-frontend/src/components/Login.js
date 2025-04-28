@@ -68,7 +68,6 @@ const Login = () => {
               <div className="form-group">
                 <label>Email Address</label>
                 <div className="input-with-icon">
-                  <FiMail className="input-icon" />
                   <input
                     type="email"
                     value={email}
@@ -76,6 +75,7 @@ const Login = () => {
                     placeholder="your@email.com"
                     required
                   />
+                  <span className="input-icon-wrapper"><FiMail /></span>
                 </div>
               </div>
 
@@ -85,7 +85,6 @@ const Login = () => {
                   <Link to="/forgot-password" className="forgot-link">Forgot Password?</Link>
                 </div>
                 <div className="input-with-icon">
-                  <FiLock className="input-icon" />
                   <input
                     type="password"
                     value={password}
@@ -93,6 +92,7 @@ const Login = () => {
                     placeholder="••••••••"
                     required
                   />
+                  <span className="input-icon-wrapper"><FiLock /></span>
                 </div>
               </div>
 

@@ -129,7 +129,7 @@
 
 .input-with-icon input {
   width: 100%;
-  padding: 12px 40px;
+  padding: 12px 60px 12px 12px; /* Further increased padding-right for right icon */
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
@@ -141,11 +141,18 @@
   border-color: #3e8e41;
 }
 
-.input-icon {
+.input-icon-wrapper {
   position: absolute;
   top: 50%;
-  left: 12px;
+  right: 12px !important; /* Force positioned on right */
   transform: translateY(-50%);
+  pointer-events: none; /* Allow clicks through icon */
+  z-index: 10; /* Ensure icon is above input */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 18px;
 }
 
 .auth-button {
