@@ -105,7 +105,6 @@ const Signup = () => {
               <div className="form-group">
                 <label>Email Address</label>
                 <div className="input-with-icon">
-                  <FiMail className="input-icon" />
                   <input
                     type="email"
                     value={email}
@@ -113,13 +112,13 @@ const Signup = () => {
                     placeholder="your@email.com"
                     required
                   />
+                  <span className="input-icon-wrapper"><FiMail /></span>
                 </div>
               </div>
 
               <div className="form-group">
                 <label>Password</label>
                 <div className="input-with-icon">
-                  <FiLock className="input-icon" />
                   <input
                     type="password"
                     value={password}
@@ -127,13 +126,13 @@ const Signup = () => {
                     placeholder="••••••••"
                     required
                   />
+                  <span className="input-icon-wrapper"><FiLock /></span>
                 </div>
               </div>
 
               <div className="form-group">
                 <label>Confirm Password</label>
                 <div className="input-with-icon">
-                  <FiLock className="input-icon" />
                   <input
                     type="password"
                     value={confirmPassword}
@@ -141,6 +140,7 @@ const Signup = () => {
                     placeholder="••••••••"
                     required
                   />
+                  <span className="input-icon-wrapper"><FiLock /></span>
                 </div>
               </div>
 
