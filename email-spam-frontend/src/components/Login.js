@@ -82,7 +82,7 @@ const Login = () => {
               <div className="form-group">
                 <div className="label-with-link">
                   <label>Password</label>
-                  <a href="#forgot" className="forgot-link">Forgot Password?</a>
+                  <Link to="/forgot-password" className="forgot-link">Forgot Password?</Link>
                 </div>
                 <div className="input-with-icon">
                   <FiLock className="input-icon" />
