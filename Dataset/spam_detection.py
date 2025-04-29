@@ -54,7 +54,7 @@ tfidf = TfidfVectorizer(max_features=3000)
 X = tfidf.fit_transform(emails_df['cleaned_message']).toarray()
 y = emails_df['label'].values
 
-# Step 5: Split data
+# Step 5: Split data.
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 6: Train model
