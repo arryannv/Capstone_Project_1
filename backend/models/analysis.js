@@ -22,7 +22,7 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Protected route example (fetch user info or analysis data)
+// Protected route example (fetch user info or analysis data.)
 router.get('/data', authenticateToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId).select('-password'); // exclude password
