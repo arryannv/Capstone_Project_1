@@ -9,13 +9,13 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import joblib
 
-# Show where files are being saved
+# Show where files are being saved.
 print("Current working directory:", os.getcwd())
 
 # Download the necessary NLTK stopwords
 nltk.download('stopwords')
 
-# Step 1: Load emails from directory
+# Step 1: Load emails from directory.
 def load_emails_from_directory(directory):
     emails = []
     for filename in os.listdir(directory):
