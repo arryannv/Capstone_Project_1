@@ -1,7 +1,7 @@
 // models/User.js
 const mongoose = require('mongoose');
 
-// Email History Schema
+// Email History Schema.
 const emailAnalysisSchema = new mongoose.Schema({
   content: {
     type: String,
