@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Dashboard.css';
 
 // Icons (you'll need to install: npm install react-icons)
-import { FiMail, FiAlertCircle, FiCheckCircle, FiClock, FiUpload, FiLogOut, FiUser, FiSettings } from 'react-icons/fi';
+import { FiMail, FiAlertCircle, FiCheckCircle, FiClock, FiUpload, FiLogOut, FiUser } from 'react-icons/fi';
 import { IoAnalytics } from 'react-icons/io5';
 
 const Dashboard = () => {
@@ -123,12 +123,7 @@ const Dashboard = () => {
             <IoAnalytics /> {!sidebarCollapsed && 'Statistics'}
           </button>
           
-          <button 
-            className={activeTab === 'settings' ? 'active' : ''} 
-            onClick={() => setActiveTab('settings')}
-          >
-            <FiSettings /> {!sidebarCollapsed && 'Settings'}
-          </button>
+          {/* Removed Settings button */}
         </div>
         
         <div className="sidebar-footer">
@@ -328,46 +323,7 @@ const Dashboard = () => {
           </div>
         )}
         
-        {/* Settings Tab */}
-        {activeTab === 'settings' && (
-          <div className="content-section">
-            <h2>Account Settings</h2>
-            <div className="settings-container">
-              <div className="settings-card">
-                <h3>Profile Information</h3>
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" value="user@example.com" disabled />
-                </div>
-                <button className="settings-btn">Change Password</button>
-              </div>
-              
-              <div className="settings-card">
-                <h3>Notification Preferences</h3>
-                <div className="preference-item">
-                  <label className="switch">
-                    <input type="checkbox" checked />
-                    <span className="slider"></span>
-                  </label>
-                  <span>Email notifications for high-risk spam</span>
-                </div>
-                <div className="preference-item">
-                  <label className="switch">
-                    <input type="checkbox" />
-                    <span className="slider"></span>
-                  </label>
-                  <span>Weekly spam report summary</span>
-                </div>
-              </div>
-              
-              <div className="settings-card danger-zone">
-                <h3>Danger Zone</h3>
-                <p>These actions cannot be undone. Please proceed with caution.</p>
-                <button className="danger-btn">Delete Account</button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Removed Settings Tab */}
       </div>
     </div>
   );
